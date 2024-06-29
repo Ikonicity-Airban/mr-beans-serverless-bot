@@ -2,13 +2,13 @@ import { Bot, Context, NextFunction, session } from "grammy";
 import debug from "debug";
 import { storage } from "../supabase";
 import { middlewares } from "../middlewares";
-import { about, start } from "../commands";
+import { about, startCommand } from "../commands";
 import { greeting } from "../text";
 
 export function botUtils(bot: Bot) {
 	// bot.use();
-	// bot.api.setChatMenuButton(, "Start");
 	debug("lib:utils")("Middlewares added");
+	// bot.api.setChatMenuButton(, "Start");
 	bot.use(
 		session({
 			initial: () => ({ counter: 0 }),
@@ -17,15 +17,16 @@ export function botUtils(bot: Bot) {
 	);
 
 	bot.use(logger);
-	bot.on("message::email", ctx => ctx.reply("this is an email"));
-	bot.command("start", start);
+	bot.use(middlewares);
+	bot.command("start", startCommand);
 	bot.command("greeting", greeting);
 	bot.command("about", about);
-	bot.use(middlewares);
+	bot.on("message::email", ctx => ctx.reply("this is an email"));
 	bot.catch(error => {
 		console.error(error);
 		return error.ctx.reply("Something went wrong. Please try again later.");
 	});
+	bot.start();
 }
 
 export const logger = async (_: Context, next: NextFunction): Promise<void> => {
