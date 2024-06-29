@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"pretty": true,
+		"newLine": "lf",
+		"baseUrl": "./",
+		"stripInternal": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noEmitOnError": true,
+		"useDefineForClassFields": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"outDir": "public",
+		"strict": false,
+		"strictNullChecks": false,
+		"sourceMap": true
+	},
+	"include": ["api", "src/*", "test"],
+	"exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,9 @@
+pnpm install @vercel/node debug dotenv-cli nodemon  ts-node typescript
+pnpm install grammyjs
+
+"scripts": {
+		"dev": "dotenv -- nodemon -e ts -x ts-node src/lib/telegram.ts",
+		"prettier": "prettier --single-quote --trailing-comma all --write 'src/**/*.ts'"
+},
+
+https://t.me/mr_beans_token_bot?start=6664014533
