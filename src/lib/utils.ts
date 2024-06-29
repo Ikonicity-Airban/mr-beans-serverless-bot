@@ -1,11 +1,14 @@
-import { Bot, Context, NextFunction, session } from "grammy";
+import { Bot, Context, NextFunction, session, SessionFlavor } from "grammy";
 import debug from "debug";
 import { storage } from "../supabase";
 import { middlewares } from "../middlewares";
 import { about, start } from "../commands";
 import { greeting } from "../text";
+import { SessionData } from "../@types";
 
-export function botUtils(bot: Bot) {
+type MyContext = Context & SessionFlavor<SessionData>;
+
+export function botUtils(bot: Bot<MyContext>) {
 	// bot.use();
 	debug("lib:utils")("Middlewares added");
 	// bot.api.setChatMenuButton(, "Start");
@@ -15,7 +18,6 @@ export function botUtils(bot: Bot) {
 			storage,
 		}),
 	);
-
 	bot.use(logger);
 	bot.use(middlewares);
 	bot.command("start", start);
@@ -26,7 +28,6 @@ export function botUtils(bot: Bot) {
 		console.error(error);
 		return error.ctx.reply("Something went wrong. Please try again later.");
 	});
-	bot.start();
 }
 
 export const logger = async (_: Context, next: NextFunction): Promise<void> => {
