@@ -24,7 +24,6 @@ async function localBot() {
 	debug(`starting polling`);
 	// bot.command("start", (ctx) => ctx.reply("Hello World!"));
 	botUtils(bot);
-
 	bot.start();
 }
 
@@ -35,9 +34,7 @@ export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 		}
 
 		const getWebhookInfo = await bot.api.getWebhookInfo();
-
 		const botInfo = bot.botInfo;
-		bot.botInfo.username = botInfo.username;
 		console.info("Server has initialized bot username using Webhook. ", botInfo.username);
 
 		if (getWebhookInfo.url !== VERCEL_URL + "/api") {
@@ -45,9 +42,9 @@ export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 			await bot.api.deleteWebhook();
 			debug(`setting webhook to ${VERCEL_URL}/api`);
 			await bot.api.setWebhook(`${VERCEL_URL}/api`);
+			// call bot commands and middleware
+			botUtils(bot);
 		}
-		// call bot commands and middleware
-		botUtils(bot);
 
 		// console.log("webhook already defined");
 		// console.log("request method: ", req.method);
