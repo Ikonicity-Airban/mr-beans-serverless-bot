@@ -14,7 +14,7 @@ async function greeting(conversation: MyConversation, ctx: MyContext) {
 	// TODO: code the conversation
 	await ctx.reply("Hi there! What is your name?");
 	const { message } = await conversation.wait();
-	await ctx.reply(`Welcome to the chat, ${message.text}!`);
+	await ctx.reply(`Welcome to the chat, ${message?.text}!`);
 }
 
 bot.use(createConversation(greeting));
