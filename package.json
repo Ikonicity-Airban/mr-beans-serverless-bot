@@ -3,8 +3,8 @@
 	"version": "2.0.0",
 	"description": "A template for building Telegram bots with Telegraf.js Vercel's Serverless Functions",
 	"main": "api/index.ts",
-	"author": "Stephane Mensah",
-	"homepage": "https://github.com/waptik/telegram-bot-boilerplate-now-serverless-api.git",
+	"author": "Ikonicity Airban",
+	"homepage": "https://github.com/ikonicity-airban/mr-beans-token-bot.git",
 	"scripts": {
 		"dev": "dotenv -- nodemon -e ts -x ts-node src/lib/telegram.ts",
 		"prettier": "prettier --single-quote --trailing-comma all --write 'src/**/*.ts'",
