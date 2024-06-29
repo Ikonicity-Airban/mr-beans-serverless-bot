@@ -1,5 +1,5 @@
-import { User } from "grammy/types";
 import { IExtractUserDTO } from "../@types";
+import { User } from "grammy/types";
 
 export function createUserDto(user: User): IExtractUserDTO {
 	return {

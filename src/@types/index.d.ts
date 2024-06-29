@@ -1,5 +1,12 @@
 import { Context } from "grammy";
-import { User } from "grammy/types";
+
+
+export interface User {
+	id: number;
+	first_name: string;
+	last_name: string;
+	username: string;
+}
 export interface IUser extends IExtractUserDTO {
 	user_id: number;
 	referee_id: number | null;
