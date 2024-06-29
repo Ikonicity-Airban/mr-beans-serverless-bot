@@ -1,7 +1,9 @@
+import { mrBeansUrl } from "../lib/constants";
+
 export const startText = (name: string) => `
 Hello ${name}! 👋, 
 
-Welcome to the STACKS ($STX) Universe! brought to you by <a https://mr-beans.com>Mr. Beans</a> 🥥 🍌 🍌 🍌
+Welcome to the STACKS ($STX) Universe! brought to you by <a href="${mrBeansUrl}">Mr. Beans</a> 🥥 🍌 🍌 🍌
 
 <b>Mr. Beans</b> comes to the STACKS ($STX) universe arriving on a Bitcoin spaceship and is here to bring awareness throughout the crypto galaxy about the amazing works happening on the Stacks Network, which is working to bring DeFi to the Bitcoin Network.  🚀🚀
 
