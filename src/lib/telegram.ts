@@ -43,7 +43,26 @@ export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 			await bot.api.setWebhook(`${VERCEL_URL}/api`);
 			// call bot commands and middleware
 		}
-		botUtils(bot);
+			debug("lib:utils")("Middlewares added");
+			// bot.api.setChatMenuButton(, "Start");
+			bot.use(
+				session({
+					initial: () => ({ counter: 0 }),
+					storage,
+				}),
+			);
+
+			bot.use(logger);
+			bot.use(middlewares);
+			bot.command("start", start);
+			bot.command("greeting", greeting);
+			bot.command("about", about);
+			bot.on("message::email", ctx => ctx.reply("this is an email"));
+			bot.catch(error => {
+				console.error(error);
+				return error.ctx.reply("Something went wrong. Please try again later.");
+			});
+			bot.start();
 
 		// console.log("webhook already defined");
 		// console.log("request method: ", req.method);
@@ -62,8 +81,8 @@ export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 
 //run bot in development mode
 
-if (isDev) {
-	console.log("isDev", isDev);
-	localBot().then(() => console.log("Bot is waiting for messages..."));
-	// call bot commands and middleware
-}
+// if (isDev) {
+// 	console.log("isDev", isDev);
+// 	localBot().then(() => console.log("Bot is waiting for messages..."));
+// 	// call bot commands and middleware
+// }
