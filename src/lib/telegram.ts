@@ -8,7 +8,7 @@ import { SessionData } from "../@types";
 type MyContext = Context & SessionFlavor<SessionData>;
 
 const debug = require("debug")("lib:telegram");
-const isDev = process.env.DEV;
+const isDev = process.env.NODE_ENV === "development";
 const VERCEL_URL = process.env.VERCEL_URL;
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
@@ -61,10 +61,9 @@ export async function useWebhook(req: VercelRequest, res: VercelResponse) {
 }
 
 //run bot in development mode
-(async () => {
-	if (isDev) {
-		console.log("isDev", isDev);
-		await localBot();
-		// call bot commands and middleware
-	}
-})();
+
+if (isDev) {
+	console.log("isDev", isDev);
+	localBot().then(() => console.log("Bot is waiting for messages..."));
+	// call bot commands and middleware
+}

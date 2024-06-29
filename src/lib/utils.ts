@@ -2,7 +2,7 @@ import { Bot, Context, NextFunction, session } from "grammy";
 import debug from "debug";
 import { storage } from "../supabase";
 import { middlewares } from "../middlewares";
-import { about, startCommand } from "../commands";
+import { about, start } from "../commands";
 import { greeting } from "../text";
 
 export function botUtils(bot: Bot) {
@@ -18,7 +18,7 @@ export function botUtils(bot: Bot) {
 
 	bot.use(logger);
 	bot.use(middlewares);
-	bot.command("start", startCommand);
+	bot.command("start", start);
 	bot.command("greeting", greeting);
 	bot.command("about", about);
 	bot.on("message::email", ctx => ctx.reply("this is an email"));
