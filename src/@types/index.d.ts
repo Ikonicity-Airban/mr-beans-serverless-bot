@@ -3,9 +3,9 @@ import { Context } from "grammy";
 
 export interface User {
 	id: number;
-	first_name: string;
-	last_name: string;
-	username: string;
+	first_name?: string;
+	last_name?: string;
+	username?: string;
 }
 export interface IUser extends IExtractUserDTO {
 	user_id: number;
