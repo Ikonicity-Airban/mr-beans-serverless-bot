@@ -8,7 +8,9 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 
 const bot = new Bot<MyContext>(BOT_TOKEN);
 
-bot.command("start", greeting);
+bot.command("start", ctx => {
+	ctx.reply("Hello there!");
+});
 
 botUtils(bot);
 const token = process.env.BOT_TOKEN;
