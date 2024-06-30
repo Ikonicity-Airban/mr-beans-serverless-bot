@@ -2,12 +2,12 @@
 	"version": 2,
 	"routes": [
 		{
-			"src": "/.*",
-			"dest": "api/index.ts"
+			"src": "/(.*)",
+			"dest": "api/bot.ts"
 		}
 	],
 	"functions": {
-		"api/index.ts": {
+		"api/bot.ts": {
 			"memory": 1024,
 			"maxDuration": 10
 		}
