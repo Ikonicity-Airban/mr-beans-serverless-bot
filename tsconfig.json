@@ -22,6 +22,6 @@
 		"strictNullChecks": false,
 		"sourceMap": true,
 	},
-	"include": ["api"],
+	"include": ["api", "index.ts"],
 	"exclude": ["dist", "node_modules", "build"]
 }

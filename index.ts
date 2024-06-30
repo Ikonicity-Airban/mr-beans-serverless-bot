@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
-import { useWebhook } from "../src/lib";
+import { useWebhook } from "./src/lib";
 
 // main function
 export default async function handle(req: VercelRequest, res: VercelResponse) {
