@@ -12,6 +12,7 @@ export function botUtils(bot: Bot<MyContext>) {
 	// bot.use();
 	debug("lib:utils")("Middlewares added");
 	// bot.api.setChatMenuButton(, "Start");
+	
 	bot.use(
 		session({
 			initial: () => ({ counter: 0 }),
