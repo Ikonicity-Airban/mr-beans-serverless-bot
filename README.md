@@ -88,4 +88,4 @@ Pull Requests are welcomed 😉
 
 
 my web hook url is https://mr-beans-serverless-bot.vercel.app/api/bot
-https://api.telegram.org/bot7203146956:AAGuPhJJjZxxEAM3o6PNyRluOttvADraBLU/setWebhook?url=https://mr-beans-serverless-bot.vercel.app/api/bot
+https://api.telegram.org/bot7203146956/setWebhook?url=https://mr-beans-serverless-bot.vercel.app/api/bot
